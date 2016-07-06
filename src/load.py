@@ -24,12 +24,11 @@ def load_base(file_path):
 
 def text2fea(text, max_text_len=1014):
     text_len = len(text)
-    fea = [[0] * max_text_len for i in range(alphabet_size)]
+    fea = [-1] * max_text_len
     for i in range(min(text_len, max_text_len)):
         c = text[text_len-1-i]
         if c in char2ind:
-            fea[i][char2ind[c]] = 1
+            fea[i] = char2ind[c]
     return fea
-
 
 
