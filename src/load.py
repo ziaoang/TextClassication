@@ -11,15 +11,16 @@ def load(name):
         return load_AG()
 
 def load_AG():
+    class_num = 4
     train_set = load_base("../data/ag_news_csv/train.csv")
     test_set = load_base("../data/ag_news_csv/test.csv")
-    return train_set, test_set
+    return class_num, train_set, test_set
 
 def load_base(file_path):
     data = []
     with open(file_path) as f:
         for label, title, desc in csv.reader(f):
-            data.append([text2fea(title + ' ' + desc), int(label)-1])
+            data.append([int(label)-1, text2fea(title + ' ' + desc)])
     return data
 
 def text2fea(text, max_text_len=1014):
