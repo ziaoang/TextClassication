@@ -9,11 +9,19 @@ for i in range(alphabet_size):
 def load(name):
     if name == "AG":
         return load_AG()
+    elif name == "DBP":
+        return load_DBP()
 
 def load_AG():
     class_num = 4
     train_set = load_base("../data/ag_news_csv/train.csv")
     test_set = load_base("../data/ag_news_csv/test.csv")
+    return class_num, train_set, test_set
+
+def load_DBP():
+    class_num = 14
+    train_set = load_base("../data/dbpedia_csv/train.csv")
+    test_set = load_base("../data/dbpedia_csv/test.csv")
     return class_num, train_set, test_set
 
 def load_base(file_path):

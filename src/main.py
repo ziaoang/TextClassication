@@ -8,7 +8,8 @@ alphabet = "abcdefghijklmnopqrstuvwxyz0123456789,;.!?:'\"/\\|_@#$%^&*~`+-=<>()[]
 alphabet_size = len(alphabet)
 max_text_len = 1014
 
-class_num, train_set, test_set = load("AG")
+#class_num, train_set, test_set = load("AG")
+class_num, train_set, test_set = load("DBP")
 train_set_group = defaultdict(list)
 label_group = defaultdict(int)
 for label, feature in train_set:
