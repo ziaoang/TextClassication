@@ -56,17 +56,13 @@ sess.run(tf.initialize_all_variables())
 for i in range(50000):
     batch_x, batch_y = get_batch()
     if i%1000 == 0:
-        train_accuracy = accuracy.eval(feed_dict={
-            x:batch_x, y: batch_y, keep_prob: 1.0})
+        train_accuracy = accuracy.eval(feed_dict={x:batch_x, y: batch_y})
         print("step %d\ttraining accuracy %.4f"%(i, train_accuracy))
-    train_step.run(feed_dict={x: batch_x, y: batch_y, keep_prob: 0.5})
+    train_step.run(feed_dict={x: batch_x, y: batch_y})
 
 total_accuracy = 0
 for t in test_set:
-    current_accuracy = accuracy.eval(feed_dict={
-        x: [t[1]],
-        y: [t[0]],
-        keep_prob: 1.0})
+    current_accuracy = accuracy.eval(feed_dict={x: [t[1]], y: [t[0]]})
     total_accuracy += current_accuracy
 total_accuracy /= len(test_set)
 print("test accuracy %.4f"%total_accuracy)
