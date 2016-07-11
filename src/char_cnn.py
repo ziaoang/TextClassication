@@ -111,7 +111,7 @@ for t in test_set:
     current_accuracy = accuracy.eval(feed_dict={
         x: [t[1]],
         y: [t[0]],
-        keep_prob: 1.0}))
+        keep_prob: 1.0})
     total_accuracy += current_accuracy
 total_accuracy /= len(test_set)
 print("test accuracy %.4f"%total_accuracy)
