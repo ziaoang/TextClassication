@@ -30,7 +30,7 @@ x0 = tf.reshape(x_onehot, [-1, max_text_len * alphabet_size])
 
 w1 = weight_init([max_text_len * alphabet_size, 2048])
 b1 = weight_init([2048])
-x1 = tf.nn.dropout(tf.nn.relu(tf.matmul(x0, w7) + b7), keep_prob)
+x1 = tf.nn.dropout(tf.nn.relu(tf.matmul(x0, w1) + b1), keep_prob)
 
 w2 = weight_init([2048, 2048])
 b2 = weight_init([2048])
