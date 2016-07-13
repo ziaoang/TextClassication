@@ -32,13 +32,11 @@ def load_base(file_path):
     return data
 
 def text2fea(text, max_text_len=1014):
-    text = text.lower()
-    text_len = len(text)
+    text = text.lower()[::-1][:max_text_len]
     fea = [-1] * max_text_len
-    for i in range(min(text_len, max_text_len)):
-        c = text[text_len-1-i]
-        if c in char2ind:
-            fea[i] = char2ind[c]
+    for i in range(len(text)):
+        if text[i] in char2ind:
+            fea[i] = char2ind[text[i]]
     return fea
 
 
