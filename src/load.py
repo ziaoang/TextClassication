@@ -1,6 +1,6 @@
 import csv
 
-alphabet = "abcdefghijklmnopqrstuvwxyz0123456789,;.!?:'\"/\\|_@#$%^&*~`+-=<>()[]{}"
+alphabet = "abcdefghijklmnopqrstuvwxyz0123456789-,;.!?:'\"/\\|_@#$%^&*~`+-=<>()[]{}"
 alphabet_size = len(alphabet)
 char2ind = {}
 for i in range(alphabet_size):
