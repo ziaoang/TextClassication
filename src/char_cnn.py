@@ -25,9 +25,9 @@ x = tf.placeholder(tf.int32, [None, max_text_len])
 y = tf.placeholder(tf.int32, [None])
 x_onehot = tf.one_hot(x, alphabet_size)
 y_onehot = tf.one_hot(y, class_num)
-x_image = tf.reshape(x_onehot, [-1, max_text_len, alphabet_size, 1])
-# batch x 1014 x alphabet_size x 1
-w1 = weight_init([7, alphabet_size, 1, 256])
+x_image = tf.reshape(x_onehot, [-1, max_text_len, 1, alphabet_size])
+# batch x 1014 x 1 x alphabet_size
+w1 = weight_init([7, 1, alphabet_size, 256])
 b1 = weight_init([256])
 x_11 = tf.nn.conv2d(x_image, w1, strides=[1, 1, 1, 1], padding="VALID")
 x_12 = tf.nn.relu(x_11 + b1)
@@ -77,20 +77,19 @@ x_83 = tf.nn.dropout(x_82, keep_prob)
 w9 = weight_init([1024, class_num])
 b9 = weight_init([class_num])
 x_91 = tf.matmul(x_83, w9) + b9
-x_92 = tf.nn.softmax(x_91)
+y_predict = tf.nn.softmax(x_91)
 
-is_equal = tf.equal(tf.argmax(y_onehot, 1), tf.argmax(x_92, 1))
+is_equal = tf.equal(tf.argmax(y_onehot, 1), tf.argmax(y_predict, 1))
 correct_count = tf.reduce_sum(tf.cast(is_equal, tf.int32))
 
 # loss function
+cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_onehot * tf.log(y_predict), reduction_indices=[1]))
+train_step = tf.train.MomentumOptimizer(1e-2, 0.9).minimize(cross_entropy)
+
 sess = tf.InteractiveSession()
 sess.run(tf.initialize_all_variables())
 
-cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_onehot * tf.log(x_92), reduction_indices=[1]))
-train_step = tf.train.GradientDescentOptimizer(1e-2).minimize(cross_entropy)
-
 # iterator
-random.seed(123456789)
 for epoch in range(epoch_count):
     random.shuffle(train_set)
 
@@ -106,6 +105,8 @@ for epoch in range(epoch_count):
             batch_y.append(label)
 
         train_step.run(feed_dict={x: batch_x, y: batch_y, keep_prob: 0.5})
+        current_correct_count = correct_count.eval(feed_dict={x: batch_x, y: batch_y, keep_prob: 1.0})
+        print(current_correct_count)
 
     # pridict
     total_correct_count = 0
