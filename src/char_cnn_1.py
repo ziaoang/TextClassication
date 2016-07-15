@@ -86,7 +86,7 @@ for epoch in range(epoch_count):
         total_correct_count += current_correct_count
         total_count += batch_size
     accuracy = float(total_correct_count) / total_count
-    print("epoch %d\taccuary %.4f"%(epoch+1, accuracy))
+    print("epoch %03d\taccuary %.4f"%(epoch+1, accuracy))
 
 
 
