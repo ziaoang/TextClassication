@@ -107,7 +107,7 @@ for epoch in range(epoch_count):
             batch_y.append(label)
         
         total_batch_count += 1
-	    if total_batch_count % 15000 == 0:
+        if total_batch_count % 15000 == 0:
             base_learn_rate /= 2.0
         train_step.run(feed_dict={x: batch_x, y: batch_y, keep_prob: 0.5, learn_rate: base_learn_rate})
 
