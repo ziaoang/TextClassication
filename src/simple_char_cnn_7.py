@@ -4,7 +4,7 @@ from load import load
 from collections import defaultdict
 import random
 
-epoch_count = 10
+epoch_count = 100
 batch_size = 128
 
 alphabet = "abcdefghijklmnopqrstuvwxyz0123456789-,;.!?:'\"/\\|_@#$%^&*~`+-=<>()[]{}"
@@ -20,6 +20,7 @@ def weight_init(shape):
 
 # batch x max_text_len
 keep_prob = tf.placeholder(tf.float32)
+learn_rate = tf.placeholder(tf.float32)
 
 x = tf.placeholder(tf.int32, [None, max_text_len])
 y = tf.placeholder(tf.int32, [None])
@@ -83,11 +84,13 @@ correct_count = tf.reduce_sum(tf.cast(is_equal, tf.int32))
 
 # loss function
 cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_onehot * tf.log(y_predict), reduction_indices=[1]))
-train_step = tf.train.MomentumOptimizer(1e-2, 0.9).minimize(cross_entropy)
+train_step = tf.train.MomentumOptimizer(learn_rate, 0.9).minimize(cross_entropy)
 
 sess = tf.InteractiveSession()
 sess.run(tf.initialize_all_variables())
 
+total_batch_count = 0
+base_learn_rate = 0.01
 # iterator
 for epoch in range(epoch_count):
     random.shuffle(train_set)
@@ -102,8 +105,11 @@ for epoch in range(epoch_count):
             label, feature = train_set[i]
             batch_x.append(feature)
             batch_y.append(label)
-
-        train_step.run(feed_dict={x: batch_x, y: batch_y, keep_prob: 0.5})
+        
+        total_batch_count += 1
+        if total_batch_count % 15000 == 0:
+            base_learn_rate /= 2.0
+        train_step.run(feed_dict={x: batch_x, y: batch_y, keep_prob: 0.5, learn_rate: base_learn_rate})
 
     # pridict
     total_correct_count = 0
