@@ -28,6 +28,12 @@ y_onehot = tf.one_hot(y, class_num)
 hidden_size = 20
 input_list = tf.unpack(x_onehot, axis=1)
 cell = tf.nn.rnn_cell.GRUCell(hidden_size)
+# state = cell.zero_state(...)
+# outputs = []
+# for input_ in inputs: # A length T list of inputs, each a tensor of shape [batch_size, input_size]
+#     output, state = cell(input_, state)
+#     outputs.append(output)
+# return (outputs, state)
 output_list, state = tf.nn.rnn(cell, input_list, dtype=tf.float32)
 w = weight_init([hidden_size, class_num])
 b = weight_init([class_num])
