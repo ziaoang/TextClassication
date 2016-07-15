@@ -11,7 +11,7 @@ alphabet = "abcdefghijklmnopqrstuvwxyz0123456789-,;.!?:'\"/\\|_@#$%^&*~`+-=<>()[
 alphabet_size = len(alphabet)
 max_text_len = 1014
 
-class_num, train_set, test_set = load("AG", alphabet, max_text_len)
+class_num, train_set, test_set = load("DBP", alphabet, max_text_len)
 
 # char cnn
 def weight_init(shape):
