@@ -1,0 +1,78 @@
+2016年 07月 14日 星期四 16:41:07 CST
+epoch 1	accuary 0.4378
+epoch 2	accuary 0.4881
+epoch 3	accuary 0.5127
+epoch 4	accuary 0.5240
+epoch 5	accuary 0.5312
+epoch 6	accuary 0.5226
+epoch 7	accuary 0.5253
+epoch 8	accuary 0.5342
+epoch 9	accuary 0.5330
+epoch 10	accuary 0.5295
+2016年 07月 14日 星期四 17:09:43 CST
+epoch 1	accuary 0.5874
+epoch 2	accuary 0.8077
+epoch 3	accuary 0.8232
+epoch 4	accuary 0.8424
+epoch 5	accuary 0.8630
+epoch 6	accuary 0.8665
+epoch 7	accuary 0.8669
+epoch 8	accuary 0.8657
+epoch 9	accuary 0.8672
+epoch 10	accuary 0.8637
+2016年 07月 14日 星期四 18:36:20 CST
+epoch 1	accuary 0.4995
+epoch 2	accuary 0.8099
+epoch 3	accuary 0.8423
+epoch 4	accuary 0.8739
+epoch 5	accuary 0.8845
+epoch 6	accuary 0.8916
+epoch 7	accuary 0.8934
+epoch 8	accuary 0.8939
+epoch 9	accuary 0.8938
+epoch 10	accuary 0.8926
+2016年 07月 14日 星期四 20:30:42 CST
+epoch 1	accuary 0.3267
+epoch 2	accuary 0.7042
+epoch 3	accuary 0.8142
+epoch 4	accuary 0.8570
+epoch 5	accuary 0.8753
+epoch 6	accuary 0.8894
+epoch 7	accuary 0.8935
+epoch 8	accuary 0.8922
+epoch 9	accuary 0.8930
+epoch 10	accuary 0.8898
+2016年 07月 14日 星期四 22:34:02 CST
+epoch 1	accuary 0.3231
+epoch 2	accuary 0.5173
+epoch 3	accuary 0.6843
+epoch 4	accuary 0.8096
+epoch 5	accuary 0.8469
+epoch 6	accuary 0.8640
+epoch 7	accuary 0.8791
+epoch 8	accuary 0.8867
+epoch 9	accuary 0.8643
+epoch 10	accuary 0.8852
+2016年 07月 15日 星期五 00:45:20 CST
+epoch 1	accuary 0.2558
+epoch 2	accuary 0.3216
+epoch 3	accuary 0.5154
+epoch 4	accuary 0.6186
+epoch 5	accuary 0.6582
+epoch 6	accuary 0.7503
+epoch 7	accuary 0.7790
+epoch 8	accuary 0.8518
+epoch 9	accuary 0.8714
+epoch 10	accuary 0.8607
+2016年 07月 15日 星期五 03:07:26 CST
+epoch 1	accuary 0.2503
+epoch 2	accuary 0.2500
+epoch 3	accuary 0.2495
+epoch 4	accuary 0.2503
+epoch 5	accuary 0.2503
+epoch 6	accuary 0.3247
+epoch 7	accuary 0.5724
+epoch 8	accuary 0.6123
+epoch 9	accuary 0.7957
+epoch 10	accuary 0.8219
+2016年 07月 15日 星期五 05:36:47 CST
